@@ -407,7 +407,7 @@ class ngsimDataset(Dataset):
                np.cos(traj_orient - phi_traj)  
          
         else:
-            This is Hist or Fut of the ego vehicle, then Vr = V
+            # This is Hist or Fut of the ego vehicle, then Vr = V
             polar_traj[:, 2] = car_traj[:, 2]  
         
         return polar_traj

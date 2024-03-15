@@ -48,24 +48,40 @@ The model install in Ubuntu 20.04, cuda11.7
 **1. Clone this repository**: clone our model use the following code 
 
 ```
-git clone https://github.com/Petrichor625/BATraj-Behavior-aware-Model.git
-cd Behavior_aware file
+git clone https://github.com/Petrichor625/BATraj-Behavior-aware-Model.git Behavior_aware
+cd Behavior_aware
 ```
 
-**2. Implementation Environment**: The model is implemented by using Pytorch. We share our anaconda environment in the folder 'environments', then use this command to implement your environment.
-
-```
-cd environments
-conda env create -f environment.yml
-```
-
-If this command cannot implement your conda environment well, try to install again the specific package separately.
-
-```
-conda create -n Behaivor_aware python=3.8
-conda activate Behavior-aware
-conda install pytorch==1.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
-```
+**2. Implementation Environment**: The model is implemented by using Pytorch. It is recommended to use a virtual environment or anaconda. The original repo contains instructions for conda to create and install some packages.  
+Here the instuctions for Python venv on ubuntu:
+1. Install python 3.8 and venv
+   ```
+   sudo apt install python3.8 -y
+   sudo apt install python3.8-venv -y
+   ```
+2. Create virtual environment with Python 3.8
+   ```
+   python3.8 -m venv venv
+   ```
+3. Activate it
+   ```
+   source venv/bin/activate
+   ```
+4. Install CUDA/CuDNN
+   ```
+   sudo apt-get install libcudnn8=8.5.0.*-1+cuda11.7
+   sudo apt-get install libcudnn8-dev=8.5.0.*-1+cuda11.7
+   ```
+5. Install PyTorch
+   ```
+   pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
+   ```
+5. Install requirements
+   ```
+   pip install -r requirements.txt
+   ```
+6. Download NGSIM processed data  
+   Pre-processed NGSIM data is expected for training, so download from the [original repo releases](https://github.com/Petrichor625/BATraj-Behavior-aware-Model/releases/tag/NGSIM)
 
 
 
